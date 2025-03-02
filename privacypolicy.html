@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <title>PrivacyPolicy</title>
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+     
+    
+    
+    
+    
+        <link rel="icon" type="image/png" href="header.jpg"> <!-- Favicon -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+        
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+
+
+            body {
+                background-color: #f8f8f8;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 50px;
+                position: relative;
+                background-color: white;
+                z-index: 1000;
+            }
+
+            .menu-icon {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+                color: black;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+            }
+
+            nav a {
+                font-weight: 400;
+                margin: 0 15px;
+                color: black;
+                text-decoration: none;
+                font-size: 15px;
+                line-height: 24px;
+                position: relative;
+            }
+
+            nav a:hover::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 100%;
+                height: 2px;
+                background-color: #5107B8;
+            }
+
+            nav a.cta-button {
+            background-color: #5107B8;
+            color: white !important;
+            padding: 10px 20px;
+            /* border-radius: 5px; */
+            font-weight: 900;
+            font-size: 14px;
+            line-height: 16.8px;
+            letter-spacing: 20%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+            @media (max-width: 768px) {
+                header {
+                    padding: 10px 20px;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+
+                #nav-menu {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    background-color: white;
+                    height: 100%;
+                    width: 250px;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 20px;
+                }
+
+                #nav-menu a {
+                    color: black;
+                    margin-bottom: 20px;
+                }
+
+                #nav-menu.open {
+                    transform: translateX(0);
+                }
+
+                .close-menu {
+                    font-size: 30px;
+                    color: black;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+
+            @media (min-width: 769px) {
+                .close-menu {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .desktop-home {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 769px) {
+                .mobile-home {
+                    display: none;
+                }
+            }
+
+
+
+            .future-proof-section {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40vh;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .future-proof-section .container60 {
+                background-color: #f5f5f5;
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .future-proof-section .headline60 {
+
+                font-weight: 900;
+                line-height: 38.4px;
+                font-size: 32px;
+                /* Responsive font size */
+
+                color: #000000;
+            }
+
+            .future-proof-section .subtext60 {
+                font-weight: 900;
+                line-height: 38.4px;
+                font-size: 32px;
+                color: #000000;
+                margin-top: 10px;
+            }
+
+            .future-proof-section .button60 {
+                display: inline-flex;
+                /* Allows better control of spacing */
+                align-items: center;
+                /* Vertically aligns text and arrow */
+                justify-content: center;
+                background-color: #5107B8;
+                color: white;
+                width: 432px;
+                /* Fixed width */
+                height: 72px;
+                /* Fixed height */
+                font-size: 14px;
+                font-weight: 900;
+                text-transform: uppercase;
+                border-radius: 4px;
+                margin-top: 15px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+                gap: 10px;
+                /* Space between text and arrow */
+            }
+
+            .future-proof-section .button60:hover {
+                background-color: #3a006e;
+            }
+
+            .future-proof-section .button60 .arrow {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .future-proof-section .button60:hover .arrow {
+                transform: translateX(5px);
+            }
+
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .future-proof-section {
+                    height: auto;
+                    padding: 15px;
+                }
+
+                .future-proof-section .headline60 {
+                    font-size: 5vw;
+                }
+
+                .future-proof-section .subtext60 {
+                    font-size: 4vw;
+                }
+
+                .future-proof-section .button60 {
+                    font-size: 4vw;
+                    padding: 10px 20px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .future-proof-section {
+                    height: auto;
+                    padding: 10px;
+                }
+
+                .future-proof-section .container60 {
+                    max-width: 100%;
+                }
+
+                .future-proof-section .headline60 {
+                    font-size: 6vw;
+                }
+
+                .future-proof-section .subtext60 {
+                    font-size: 4.5vw;
+                }
+
+                .future-proof-section .button60 {
+                    font-size: 4.5vw;
+                    width: 100%;
+                }
+            }
+
+            .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: black;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            font-weight: 600;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+          
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+           color: #757575;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    
+        }
+
+
+
+
+
+        .footer-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5%;
+ 
+    font-size: 14px;
+    color: #666;
+  
+}
+
+.footer-links-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap if needed */
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: 0 10px;
+    white-space: nowrap; /* Prevents links from breaking into two lines */
+}
+
+.footer-links-bottom a:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column; /* Stack items on smaller screens */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links-bottom {
+        justify-content: center;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+
+            .container {
+                padding: 5%;
+
+                margin: auto;
+            }
+
+            .header-section {
+                border-left: 8px solid #4A00E0;
+                padding-left: 10px;
+            }
+
+            .header-section h1 {
+                color: #5107B8;
+                font-size: clamp(2rem, 3vw, 3.25rem);
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                font-weight: bold;
+                line-height: 1.2;
+            }
+
+            .container67 h1 {
+
+                padding-top: 5%;
+                padding-bottom: 1%;
+                color: #5107B8;
+                font-size: 24px;
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                font-weight: 800;
+                line-height: 28.8px;
+            }
+
+            .container67 h2 {
+                padding-top: 2%;
+                padding-bottom: 1%;
+                font-size: 24px;
+                font-weight: 700;
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                line-height: 24px;
+            }
+
+            .container67 h3 {
+                color: #4A00E0;
+                font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                font-weight: 500;
+                line-height: 1.3;
+            }
+
+            .container67 p
+            {
+                padding-top: 1%;
+                padding-bottom: 1%;
+            }
+            .container67 p,
+            .container67 li {
+                font-weight: 400;
+                color: #000000;
+                line-height: 35px;
+                font-size: 20px;
+            }
+
+            .container67 ul {
+                padding-left: 20px;
+            }
+
+            .italic-text {
+                font-style: italic;
+                color: #666;
+                font-size: clamp(1rem, 1.5vw, 1.25rem);
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 5% 3%;
+                }
+
+                .container67 h1,
+                .container67 h2,
+                .container67 h3 {
+                    line-height: 1.4;
+                }
+            }
+
+            .container67 {
+                padding: 5%;
+            }
+        </style>
+    </head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="Index.html"><img id="logo" src="Gritbyte Logo 1 (1).png" alt="Gritbyte Labs Logo" height="40"></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav-menu">
+            <div class="close-menu" onclick="toggleMenu()">&times;</div>
+            <a href="Index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="Index.html" class="mobile-home">Home</a>
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Privacy Policy</h1>
+            <p class="italic-text">This privacy notice was last reviewed or revised on February 14, 2025.</p>
+        </div>
+    </div>
+    <div class="container67">
+        <p>At Gritbyte Labs ("Company," "we," "our," or "us"), we are committed to protecting your privacy and ensuring
+            compliance with applicable data protection laws. This Privacy Policy explains how we collect, use, disclose,
+            and safeguard personal data when you interact with our company, services, and applications (collectively,
+            "Services").</p>
+        <br>
+        <p>This Privacy Policy applies to:</p><br>
+        <ul>
+            <li>Company Operations: Includes interactions with clients, business communications,
+                marketing, and support services.</li>
+            <li>Developed Applications: Covers applications we develop for clients and those we
+                directly publish on platforms such as Google Play, the App Store, Oculus Store, and Steam.</li>
+            <br>
+        </ul>
+
+        <p>By using our Services, you acknowledge and agree to the practices described in this Privacy Policy.</p>
+
+        <h1 class="section67">1. Scope of the Privacy Policy</h1>
+        <p><strong>This Privacy Policy governs</strong></p>
+        <ul>
+            <li>Company Operations: We collect and process personal data in connection with our business activities...
+            </li>
+            <li>Applications Developed for Clients: For applications developed on behalf of clients, we adhere to their
+                specific privacy requirements...</li>
+        </ul>
+
+        <h1 class="section67">2. Information We Collect</h1>
+        <p>We collect personal and non-personal data to operate and improve our Services. The type of data collected
+            depends on the interaction with us and the functionality of the applications.</p>
+
+        <h2 class="section67">2.1 Company Operations</h2>
+        <p>We collect and process the following types of data: </p>
+        <ul>
+            <li>Contact Information: Name, email address, phone number, and company details.</li>
+            <li>Project Information: Requirements, feedback, and communications related to our services.</li>
+            <li>Payment Information: Billing and payment details, securely processed by third-party payment providers.
+            </li>
+            <li>Usage Data: Information regarding interactions with our website, emails, or other digital services.</li>
+        </ul>
+
+        <h2 class="section67">2.2 Applications Developed</h2>
+        <p>Depending on the application’s functionality, we may collect:  </p>
+        <ul>
+            <li>Account Information: Name, email, username, and profile details.</li>
+            <li>Device Information: Device model, OS, IP address, and unique identifiers.</li>
+            <li>Usage Data: App interaction details, session activity, and preferences.</li>
+            <li>Location Data: If necessary for app functionality, approximate or precise location data.</li>
+            <li>Payment Information: In-app purchase or subscription details, processed by platform-specific payment
+                systems (e.g., Google Play, App Store). </li>
+        </ul>
+
+        <h1 class="section67">3. How We Use Your Information </h1>
+        <p>We use collected data to: </p>
+
+        <h2 class="section67">3.1 For Company Operations </h2>
+        <ul>
+            <li>Service Delivery: Provide customized solutions based on client needs. </li>
+            <li>Customer Support: Respond to inquiries and resolve technical or service-related issues. </li>
+            <li>Analytics & Improvement: Enhance our services based on usage insights. </li>
+            <li>Marketing & Communications: Send updates, newsletters, and promotional content (subject to user
+                consent). </li>
+        </ul>
+
+        <h2 class="section67">3.2 For Developed Applications </h2>
+        <ul>
+            <li>App Functionality: Enable core features such as authentication, gameplay, and transactions. </li>
+            <li>Performance Optimization: Improve app efficiency, usability, and stability. </li>
+            <li>Personalization: Customize user experience based on preferences. </li>
+            <li>Compliance: Ensure adherence to platform guidelines and legal requirements, including parental consent
+                where applicable. </li>
+
+        </ul>
+
+
+        <h1 class="section67">4. Sharing Your Information</h1>
+        <p>We do not sell or rent personal data. However, we may share information under the following circumstances:  
+        </p>
+
+        <h2 class="section67">4.1 For Company Operations </h2>
+        <ul>
+            <li>Service Providers: Trusted third-party vendors providing cloud storage, payment processing, marketing,
+                or analytics services.  </li>
+            <li>Legal Compliance: When required by law, government request, or legal proceedings. </li>
+
+        </ul>
+
+        <h2 class="section67">4.2 For Applications Developed </h2>
+        <ul>
+            <li>Platform Providers: To enable features such as Google Play Games, Steam Achievements, or App Store
+                services. </li>
+            <li>Client-Specific Requirements: Data-sharing as per agreements with clients, subject to their privacy
+                policies. </li>
+            <li>Third-Party Tools & APIs: Integration with external analytics, advertising, or software services within
+                the app. </li>
+        </ul>
+        <p>For client apps, data-sharing practices are defined by agreements with our customers, who may have their own
+            privacy policies. </p>
+
+
+
+        <h1 class="section67">5. Data Security</h1>
+        <p>We implement industry-standard security measures to protect personal data from unauthorized access, loss,
+            misuse, or alteration. For applications developed for clients, data collection and sharing practices are
+            governed by contractual agreements with the client, who may have their own data policies. 
+        </p>
+
+        <h2 class="section67">5.1 Security Practices </h2>
+        <ul>
+            <li>Encryption: Sensitive data is encrypted during storage and transmission using industry-standard
+                protocols such as SSL/TLS. </li>
+            <li>Access Control: Access to systems and data is restricted to authorized personnel only, with strict
+                authentication and monitoring mechanisms. </li>
+            <li>Regular Audits: We conduct periodic security assessments and vulnerability testing to identify and
+                mitigate risks. </li>
+            <li>Third-Party Compliance: Any third-party service providers engaged by us must adhere to recognized
+                security standards, such as ISO 27001, SOC 2, or equivalent. </li>
+
+        </ul>
+
+        <h2 class="section67">5.2 Security Measures in Applications </h2>
+        <ul>
+            <li>Secure Integration: All applications developed incorporate secure API integrations and comply with
+                platform security requirements (e.g., Google Play, App Store, Oculus Store, Steam). </li>
+            <li>Client-Specific Requirements: Data-sharing as per agreements with clients, subject to their privacy
+                policies. </li>
+            <li>Data Minimization: We collect only the data necessary for the app’s intended functionality and avoid
+                excessive data retention. </li>
+        </ul>
+
+        <h2 class="section67">5.3 Limitations </h2>
+        <p>While we employ robust security measures, no system can be completely immune to security breaches. In the
+            event of a data breach, we will: </p>
+        <ul>
+            <li>Take immediate steps to contain and mitigate the breach. </li>
+            <li>Notify affected users and relevant authorities as required by applicable data protection laws. </li>
+            <li>Implement corrective actions to prevent future occurrences. </li>
+        </ul>
+
+
+
+
+        <h1 class="section67">6. Cookies and Tracking Technologies</h1>
+        <p>We use cookies and similar tracking technologies to enhance user experience and improve our services. </p>
+
+        <h2 class="section67">6.1 Use of Cookies </h2>
+        <p>Cookies and tracking technologies may be used for the following purposes: </p>
+        <ul>
+            <li>Session Management: To remember user sessions and preferences. </li>
+            <li>Analytics: To analyze website and app performance, user engagement, and trends. </li>
+            <li>Personalization: To deliver customized content, including personalized ads where applicable. </li>
+        </ul>
+
+        <h2 class="section67">6.2 Tracking Technologies in Applications  </h2>
+        <p>For applications, we may utilize: </p>
+        <ul>
+            <li>Device Identifiers: Unique device identifiers may be used for session tracking and app optimization. 
+            </li>
+            <li>Analytics Tools: We may integrate third-party analytics services such as Google Analytics, Firebase, or
+                similar platforms to gather insights for app performance and user experience improvements. </li>
+        </ul>
+
+        <h2 class="section67">6.3 Managing Cookies and Tracking </h2>
+        <p>Users have the ability to: </p>
+        <ul>
+            <li>Adjust browser or device settings to block or manage cookies. </li>
+            <li>Opt out of tracking through in-app settings or platform preferences, such as App Tracking Transparency
+                (ATT) on iOS or Google Play’s opt-out mechanisms. </li>
+        </ul>
+
+
+
+
+
+
+        <h1 class="section67">7. Children’s Privacy</h1>
+
+        <h2 class="section67">7.1 General Policy  </h2>
+        <p>Our applications and services are not directed at children under the age of 13 (or the relevant minimum age
+            in their jurisdiction) unless explicitly designed for them. </p>
+        <p>If an application is intended for children, we ensure compliance with child protection laws and
+            platform-specific requirements. </p>
+        <ul>
+            <li>Session Management: To remember user sessions and preferences. </li>
+            <li>Analytics: To analyze website and app performance, user engagement, and trends. </li>
+            <li>Personalization: To deliver customized content, including personalized ads where applicable. </li>
+        </ul>
+
+        <h2 class="section67">7.2 Data Collection for Children   </h2>
+        <p>For applications intended for children:</p>
+        <ul>
+            <li>Data collection is strictly limited to what is necessary for the app’s core functionality. </li>
+            <li>No personal information is collected without verifiable parental consent where required by law. </li>
+            <li>Behavioral advertising and tracking technologies are disabled in compliance with regulatory standards. 
+            </li>
+        </ul>
+
+        <h2 class="section67">7.3 Compliance for Client-Developed Applications </h2>
+        <p>When developing applications for clients targeting children, we ensure adherence to: </p>
+        <ul>
+            <li>Google Play Families Policy: Ensuring apps meet the required standards for child-directed content and
+                data handling. </li>
+            <li>Apple App Store Guidelines: Compliance with child protection policies regarding data collection and
+                storage. </li>
+            <li>Oculus Store & Steam Requirements: Ensuring age-appropriate content and restrictions on data collection
+                from minors. </li>
+        </ul>
+        <h2 class="section67">7.4 Reporting Concerns  </h2>
+        <p>If you believe that we have inadvertently collected a child’s personal data without appropriate consent,
+            please contact us at privacy@gritbyte.com. We will promptly investigate and take the necessary action to
+            delete such information. </p>
+
+
+
+
+
+        <h1 class="section67">8. Data Retention </h1>
+        <p>We retain personal data only for as long as necessary to fulfill its intended purpose, comply with legal
+            obligations, or meet contractual requirements. </p>
+        <h2 class="section67">8.1 Data Retention for Company Operations  </h2>
+
+        <ul>
+            <li>Client Data: Retained for the duration of the business relationship and securely archived after project
+                completion, unless otherwise requested by the client. </li>
+            <li>Financial Records: Retained as required by applicable tax, accounting, and regulatory laws. </li>
+            <li>Communication Data: Emails, support requests, and related correspondence may be stored for quality
+                assurance, record-keeping, and dispute resolution purposes. </li>
+        </ul>
+
+        <h2 class="section67">8.2 Data Retention for Developed Applications </h2>
+
+        <ul>
+            <li>User Data: Retention periods vary based on the app’s functionality and platform-specific guidelines.
+                Data is retained only as long as required for core features, such as saving user progress or
+                preferences. </li>
+            <li>Analytics Data: Aggregated and anonymized analytics data may be retained for performance optimization,
+                security monitoring, and research purposes. </li>
+            <li>User-Initiated Deletion: Users may request deletion of their personal data through in-app settings or by
+                contacting the app’s support team. </li>
+        </ul>
+
+        <h2 class="section67">8.3 Data Deletion Policies  </h2>
+
+        <ul>
+            <li>For applications developed for third-party clients, data deletion policies are governed by contractual
+                agreements and compliance with applicable regulations (e.g., GDPR, CCPA). </li>
+            <li>Users can request data deletion via app settings or by submitting a request through the designated
+                support channels. </li>
+        </ul>
+
+
+
+
+
+
+        <h1 class="section67">9. Store Publishing Compliance </h1>
+        <p>We ensure that all applications published on major digital platforms, including Google Play, App Store,
+            Oculus Store, and Steam, comply with their respective data privacy and security requirements. </p>
+        <h2 class="section67">9.1 Google Play Compliance</h2>
+
+        <ul>
+            <li>Adherence to Google’s User Data Policy, including mandatory disclosure of data collection and usage
+                through the Data Safety section. </li>
+            <li>Compliance with the Families Policy for apps targeting children, ensuring age-appropriate content and
+                obtaining verifiable parental consent where required. </li>
+
+        </ul>
+
+        <h2 class="section67">9.2 App Store Compliance</h2>
+
+        <ul>
+            <li>Full disclosure of data collection and usage practices via Privacy Nutrition Labels, including whether
+                data is linked to individual users. </li>
+            <li>Compliance with Apple’s App Tracking Transparency (ATT) framework, requiring explicit user consent for
+                tracking activities. </li>
+
+        </ul>
+
+        <h2 class="section67">9.3 Oculus Store Compliance</h2>
+
+        <ul>
+            <li>Collection of VR-related data (e.g., tracking, spatial data) follows Meta/Oculus privacy guidelines. 
+            </li>
+            <li>Implementation of minimal data collection practices, ensuring users are clearly informed about how their
+                data is processed. </li>
+        </ul>
+        <h2 class="section67">9.4 Steam Store Compliance </h2>
+
+        <ul>
+            <li>Compliance with Valve’s privacy and security standards for multiplayer games, in-game transactions, and
+                community interactions. </li>
+            <li>Transparent disclosures regarding data collection related to achievements, leaderboards, and other
+                gameplay features. </li>
+        </ul>
+
+        <h2 class="section67">9.5 Platform-Specific Opt-Outs </h2>
+
+        <ul>
+            <li>9.5 Platform-Specific Opt-Outs </li>
+        </ul>
+
+
+
+        <h1 class="section67">10. User Rights </h1>
+        <p>Users have control over their data preferences and can adjust their settings via: </p>
+
+
+        <ul>
+            <li>Google Account Preferences for limiting data sharing. </li>
+            <li>iOS Privacy Settings to manage tracking permissions. </li>
+            <li>Steam Privacy Controls for restricting data visibility. </li>
+        </ul>
+
+        <h2 class="section67">10.1 User Rights in Company Interactions </h2>
+
+        <ul>
+            <li><strong> 
+                Right to Access:</strong> Users may request a copy of the personal data we hold about them. </li>
+            <li><strong>Right to Correction : </strong>Users can request corrections to inaccurate or incomplete
+                information. </li>
+            <li><strong>Right to Deletion :</strong> Users may request deletion of their personal data, subject to
+                applicable legal and contractual obligations. </li>
+            <li><strong>Right to Data Portability :</strong> Users can request their data in a structured, commonly used
+                format. </li>
+        </ul>
+
+        <h2 class="section67">10.2 Rights for Developed Applications: </h2>
+        <p>For applications, users can exercise their rights through in-app settings or by contacting the designated
+            support team. Rights include: </p>
+        <ul>
+            <li>Opt-out of tracking or personalized advertising. </li>
+            <li>Request access, modification, or deletion of personal data. </li>
+            <li>Withdraw consent for data processing, where applicable. </li>
+        </ul>
+        <h2 class="section67">10.3 How to Exercise Your Rights </h2>
+        <p>To submit a request regarding personal data, users may contact us at privacy@gritbyte.com. Requests will be
+            processed in accordance with applicable laws such as the General Data Protection Regulation (GDPR) and the
+            California Consumer Privacy Act (CCPA). </p>
+
+
+
+        <h1 class="section67">11. Updates to the Privacy Policy</h1>
+        <p>We may update this Privacy Policy periodically to reflect changes in regulatory requirements, operational
+            practices, or new features in our services and applications. </p>
+        <h2 class="section67">11.1 Notification of Changes </h2>
+
+        <ul>
+            <li>Updated versions of this Privacy Policy will be posted on our website and, where applicable, within the
+                apps we develop. </li>
+            <li>For significant updates affecting user rights or data processing, we will notify users via email or
+                in-app notifications. </li>
+
+        </ul>
+
+        <h2 class="section67">11.2 Effective Date of Changes </h2>
+
+        <ul>
+            <li>Each update to this Privacy Policy will include an Effective Date at the top of the document. Continued
+                use of our services or applications after an update constitutes acceptance of the revised terms. </li>
+        </ul>
+
+
+        <h1 class="section67">12. Contact Information</h1>
+       <p>If you have any questions, concerns, or requests related to this Privacy Policy or the handling of your data, please contact us at: </p>
+       
+        <ul>
+          <li><strong> 
+            Email : </strong> privacy@gritbyte.com</li>
+          <li><strong>Phone :</strong> +91-XXXXXXXXXX</li>
+          <li><strong>Office Address :</strong> [Your Office Address, e.g., Bangalore, India] </li>
+        </ul>
+        <p>For app-related inquiries, please use the support options provided within the respective application or platform. </p>
+
+
+
+        <h1 class="section67">13. General Transparency Commitments </h1>
+            <h2 class="section67">13.1 Clear Communication </h2>
+        <p>We prioritize transparency in how we collect, use, and process data. Users can review privacy details through: </p>
+         <ul>
+          <li>Google Play : “Data Safety” section. </li>
+          <li>App Store : Privacy Nutrition Labels. </li>
+          <li>Oculus Store : Data usage notifications. </li>
+          <li>Steam Store : Privacy disclosures in app descriptions. </li>
+         </ul>
+
+
+         <h2 class="section67">13.2 Adherence to Platform-Specific Guidelines </h2>
+     <p>Each digital platform has unique privacy and security requirements. We ensure full compliance for: </p>
+      <ul>
+       <li>Internally published applications developed under our brand. </li>
+       <li>Client applications where we align with their privacy policies and contractual obligations. </li>
+  
+      </ul>
+
+      <h2 class="section67">13.3 Commitment to User Trust and Data Security</h2>
+      <p>We are dedicated to: </p>
+       <ul>
+        <li>Safeguarding user privacy through robust data security measures. </li>
+        <li>Ensuring compliance with global privacy regulations, including GDPR, CCPA, and other jurisdiction-specific laws. </li>
+        <li>Continuously enhancing transparency by updating our privacy policies and security frameworks in line with industry best practices. </li>
+   
+       </ul>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="future-proof-section">
+        <div class="container60">
+            <div class="headline60">Future-proof your business in 2025.</div>
+            <div class="subtext60">Explore how Gritbyte Labs can empower your industry.</div>
+            <a href="contact3.html" class="button60">
+                Get in Touch <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                    <a href="#" class="arrow">&#10145;</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
+                    <a href="#">Career</a>
+                    <a href="contact3.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
+        }
+    </script>
+</body>
+
+
+
+
+
+</html>

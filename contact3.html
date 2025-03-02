@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+    <link rel="icon"  type="image/png" href="header.jpg"> <!-- Favicon -->
+  
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1000;
+        }
+
+        header.scrolled {
+            background-color: white;
+            color: black;
+        }
+
+        header.scrolled nav a {
+            color: black;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            /* Default color before scrolling */
+            transition: color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        header.scrolled .menu-icon {
+            color: black;
+            /* Change to black when scrolled */
+        }
+
+
+
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 400;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 24px;
+            position: relative;
+        }
+
+        nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #5107B8;
+        }
+
+        nav a.cta-button {
+            background-color: #5107B8;
+            color: white !important;
+            padding: 10px 20px;
+            /* border-radius: 5px; */
+            font-weight: 900;
+            font-size: 14px;
+            line-height: 16.8px;
+            letter-spacing: 20%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header.scrolled nav a.cta-button {
+            color: white !important;
+            /* Ensures text stays white */
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            .menu-icon {
+                display: block;
+
+            }
+
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: white;
+                height: 100%;
+                width: 250px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            #nav-menu a {
+                color: black;
+                margin-bottom: 20px;
+            }
+
+            #nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .close-menu {
+                font-size: 30px;
+                color: black;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .close-menu {
+                display: none;
+            }
+        }
+
+        /* Hide home icon on mobile, show text */
+        @media (max-width: 768px) {
+            .desktop-home {
+                display: none;
+            }
+        }
+
+        /* Hide home text on desktop, show icon */
+        @media (min-width: 769px) {
+            .mobile-home {
+                display: none;
+            }
+        }
+
+        .hero-section {
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section h1 {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+
+            text-align: left;
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+
+
+        .hero-section {
+
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* align-items: center; */
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section {
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* align-items: center; */
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section h1 {
+            text-align: left;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 57.6px;
+
+        }
+
+        .hero-section p {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+            line-height: 24px;
+            /* padding: 0 15%; */
+            font-weight: 400;
+            text-align: left;
+            color: white;
+            margin-top: 10px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            .hero-section p {
+                font-size: 16px;
+                line-height: 22px;
+                /* padding: 0 10%; */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .hero-section p {
+                font-size: 14px;
+                line-height: 20px;
+                /* padding: 0 8%; */
+            }
+        }
+
+
+        .container123 {
+            padding: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .parent-container {
+            display: flex;
+            gap: 20px;
+            /* Ensures spacing instead of margin-right */
+            align-items: flex-start;
+        }
+
+
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-container {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            margin-right: 20px;
+            /* If still needed */
+        }
+
+
+
+
+        .input-group,
+        .textarea-group {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #5107B8;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        .input-group i,
+        .textarea-group i {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #888;
+        }
+
+        .input-group input,
+        .input-group select,
+        .textarea-group textarea {
+            border: none;
+            outline: none;
+            /* width: 100%; */
+            background: transparent;
+            padding: 5px;
+        }
+
+
+        .input-group select {
+            border: none;
+            outline: none;
+            width: 50%;
+            background: transparent;
+            padding: 5px;
+        }
+
+        .textarea-group textarea {
+            resize: none;
+            font-size: 16px;
+            height: 60px;
+        }
+
+        /* Button styling */
+        /* Initial styling for the button */
+        .button1 {
+            position: relative;
+            padding: 10px 20px;
+            background-color: #5107B8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        /* On hover, change the background color */
+        .button1:hover {
+            background-color: #1b023d;
+        }
+
+        /* Add animation to the icon */
+        .button1 i {
+            color: white;
+            margin-left: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Ripple effect on button click */
+        .button1:active i {
+            animation: rippleEffect 0.6s ease-out forwards;
+        }
+
+        /* Keyframe for the ripple effect */
+        @keyframes rippleEffect {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container123 {
+                flex-direction: column;
+            }
+
+
+            .form-container {
+                width: 100%;
+            }
+        }
+
+
+
+        input::placeholder {
+            font-style: italic;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            /* Make the file upload wrapper take full width */
+            max-width: 100%;
+            /* Ensure it doesn't exceed container width */
+            /* padding: 15px; */
+            padding: 1rem 0;
+            background: #f9f9f9;
+            border-radius: 8px;
+
+            cursor: pointer;
+            box-sizing: border-box;
+            /* Adjust to account for padding and borders */
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            /* Make label fill the section width */
+            background-color: #5107B8;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+            /* Adjust to account for padding */
+        }
+
+        .file-upload-label i {
+            margin-left: 10px;
+        }
+
+        .file-upload {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .file-upload-wrapper {
+                padding: 10px;
+                /* Adjust padding on smaller screens */
+            }
+
+            .file-upload-label {
+                font-size: 14px;
+                /* Adjust font size on smaller screens */
+            }
+        }
+
+        .input-group.radio-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between elements */
+        }
+
+        .input-group.radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            /* Space between radio button and text */
+        }
+
+        .input-group.radio-group {
+            border-bottom: none !important;
+        }
+
+        .flag-container {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 20px;
+            /* Ensure width and height are equal for a circular shape */
+
+        }
+
+
+        .location1 {
+            display: flex;
+            align-items: center;
+            /* Align the flag and text vertically */
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .location1 img {
+            vertical-align: middle;
+            margin-right: 10px;
+            /* Add some space between the flag and the text */
+        }
+
+
+        /* Styling for the email links */
+        .email-link {
+            text-decoration: none;
+            /* Remove underline */
+            color: black;
+            /* Set color to purple */
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+            /* Optional: Adds underline on hover */
+        }
+
+        /* Styling for the phone number link */
+        a[href^="tel:"] {
+            color: inherit;
+            /* Inherit color from the parent */
+            text-decoration: none;
+            /* Remove underline from the phone number */
+        }
+
+        a[href^="tel:"]:hover {
+            text-decoration: underline;
+            /* Optional: Adds underline on hover */
+        }
+
+        .label-text {
+            font-size: 16px;
+            color: #1E1E1E;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            line-height: 22.4px;
+            border: none;
+            /* Ensure no border is applied */
+            outline: none;
+            /* Remove any outline if applied */
+        }
+
+        /* Change the checkbox color to purple */
+        input[type="checkbox"]:checked {
+            accent-color: #5107B8;
+            /* Apply purple color when checked */
+        }
+
+        /* Add a smooth transition for the icon */
+        .file-upload-label i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover effect */
+        .file-upload-label:hover i {
+            transform: scale(1.2);
+            /* Enlarges the icon */
+            color: #6a0dad;
+            /* Changes the color on hover */
+        }
+
+        .contact-info1,
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            width: 100%;
+        }
+
+        .contact-info1 h2 {
+            letter-spacing: -0.03em;
+            font-size: 72px;
+            padding-bottom: 3rem;
+            line-height: 86.4px;
+            font-weight: 700;
+        }
+
+        .contact-info1 p {
+            font-size: clamp(14px, 1.6vw, 16px);
+            /* Scales between 14px and 16px based on viewport */
+            margin: 2vh 0;
+            /* Uses viewport height for better spacing */
+            line-height: 1.4em;
+            /* Responsive line height */
+            color: #5A5A5A;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        /* Tablet Adjustments */
+        @media (max-width: 768px) {
+            .contact-info1 p {
+                font-size: clamp(13px, 2vw, 15px);
+                /* Slightly smaller for tablets */
+                text-align: left;
+                /* Centers text on smaller screens */
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .contact-info1 p {
+                font-size: 10px;
+                /* Ensure readability on small screens */
+                margin: 1.5vh 5%;
+                /* Adds side margins for better spacing */
+                text-align: left;
+            }
+        }
+
+
+        .contact-info1 p i {
+            margin-right: 10px;
+        }
+
+        .contact-info1 p a {
+            font-weight: 500;
+            text-decoration: none;
+            color: black;
+        }
+
+        .contact-info1 .location img {
+            width: 20px;
+            /* Adjust size */
+            height: auto;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .section45 {
+            padding: 5%;
+            background-color: #f8f8f8;
+        }
+
+        .container45 {
+            width: 100%;
+
+            /* Prevents excessive stretching */
+            margin: 0 auto;
+            /* Centers the content */
+            display: grid;
+            gap: 20px;
+        }
+
+        .card45 {
+            background: white;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%;
+            /* Prevents stretching */
+            box-sizing: border-box;
+            /* Ensures padding doesn’t add to width */
+        }
+
+        .card45 h2 {
+            color: #5107B8;
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 28.8px;
+            margin-bottom: 3rem;
+
+        }
+
+        .highlight45 {
+            font-weight: bold;
+            line-height: 2rem;
+        }
+
+        .grid45 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+
+
+        @media (max-width: 768px) {
+            .grid45 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .button60 {
+            display: inline-block;
+            background-color: #4B0082;
+            color: white;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .button60:hover {
+            background-color: #3a006e;
+        }
+
+        .future-proof-section {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+        .future-proof-section {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .future-proof-section .container60 {
+            background-color: #f5f5f5;
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        .future-proof-section .headline60 {
+
+            font-weight: 900;
+            line-height: 38.4px;
+            font-size: 32px;
+            /* Responsive font size */
+
+            color: #000000;
+        }
+
+        .future-proof-section .subtext60 {
+            font-weight: 900;
+            line-height: 38.4px;
+            font-size: 32px;
+            color: #000000;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .future-proof-section .button60 {
+            display: inline-flex;
+            /* Allows better control of spacing */
+            align-items: center;
+            /* Vertically aligns text and arrow */
+            justify-content: center;
+            background-color: #5107B8;
+            color: white;
+            width: 432px;
+            /* Fixed width */
+            height: 72px;
+            /* Fixed height */
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            gap: 30px;
+            /* Space between text and arrow */
+        }
+
+        .future-proof-section .button60:hover {
+            background-color: #3a006e;
+        }
+
+        .future-proof-section .button60 .arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .future-proof-section .button60:hover .arrow {
+            transform: translateX(5px);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .future-proof-section {
+                height: auto;
+                padding: 15px;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 5vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4vw;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-proof-section {
+                height: auto;
+                padding: 10px;
+            }
+
+            .future-proof-section .container60 {
+                max-width: 100%;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 6vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4.5vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4.5vw;
+                width: 100%;
+            }
+        }
+
+
+
+        .container-wrapper .container {
+            padding: 0.5% 5%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 boxes per row */
+            gap: 20px;
+        }
+
+        .container-wrapper .container-heading {
+            margin-top: 20px;
+            letter-spacing: -0.02em;
+            line-height: 28.8px;
+            text-align: left;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #5107B8;
+            padding-left: 5%;
+        }
+
+        .container-wrapper .card {
+            background: white;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container-wrapper .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .container-wrapper p {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22.4px;
+            padding: 5%;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container-wrapper .container {
+                grid-template-columns: 1fr;
+                /* 1 box per row on mobile */
+            }
+        }
+
+        /* Scoped CSS for 'Our Presence' Section */
+        .our-presence-section {
+            font-family: Arial, sans-serif;
+            padding: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .our-presence-column {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .our-presence-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .our-presence-table th,
+        .our-presence-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .our-presence-box {
+            border: 1px solid #757575;
+            color: #757575;
+            padding: 5px;
+            margin: 5px 5px 5px 0;
+            display: inline-block;
+        }
+
+        /* Flag Styling */
+        .our-presence-flag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            padding: 1%;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .our-presence-flag img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .our-presence-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+        }
+
+        .our-presence-heading {
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 28.8px;
+            letter-spacing: -0.02em;
+            text-align: left;
+            margin-bottom: 20px;
+            color: #5107B8;
+        }
+
+        @media (max-width: 768px) {
+            .our-presence-column {
+                width: 100%;
+            }
+        }
+
+        .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: black;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            font-weight: 600;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+          
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+           color: #757575;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    
+        }
+
+
+
+
+
+        .footer-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5%;
+ 
+    font-size: 14px;
+    color: #666;
+  
+}
+
+.footer-links-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap if needed */
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: 0 10px;
+    white-space: nowrap; /* Prevents links from breaking into two lines */
+}
+
+.footer-links-bottom a:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column; /* Stack items on smaller screens */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links-bottom {
+        justify-content: center;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <a href="Index.html"><img id="logo" src="hel.png" alt="Gritbyte Labs Logo" height="40"></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav-menu">
+            <div class="close-menu" onclick="toggleMenu()">×</div>
+            <a href="Index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="Index.html" class="mobile-home">Home</a>
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="contactbanner.png" alt="Hero Background">
+        </div>
+        <h1>Let’s Build a Smarter, More Innovative Future Together</h1>
+        <p style="line-height: 1.5rem;">Whether you need cutting-edge AI solutions, immersive XR experiences, or robust
+            SaaS platforms, Gritbyte Labs
+            is your global innovation partner. With a presence in UAE, USA, Canada, and South Korea, and offices in
+            Bangalore and Mysore, we combine world-class expertise with localized support for businesses of all sizes
+        </p>
+    </section>
+    <div class="container123">
+
+        <div class="contact-info1">
+            <h2>How to <br>Reach Us?</h2>
+            <p><i class="fas fa-phone"></i> Phone&nbsp;&nbsp;: <a href="tel:+919XXXXXXXXX">+91-XXXXXXXXXX</a></p>
+            <p><i class="fa fa-envelope"></i> E-Mail&nbsp;&nbsp;: <a href="mailto:contact@gritbyte.com"
+                    class="email-link">contact@gritbyte.com</a></p>
+            <p><i class="fa fa-envelope"></i> Technical Support&nbsp;&nbsp;: <a href="mailto:support@gritbyte.com"
+                    class="email-link">support@gritbyte.com</a></p>
+
+            <h3 style="color: #5A5A5A;"><i class="fa fa-globe"></i> Regional Enquiries</h3>
+            <p class="location1"><img src="United Arab Emirates (AE).png" alt="UAE"> United Arab
+                Emirates&nbsp;&nbsp;:&nbsp;&nbsp;<a href="mailto:uae@gritbyte.com"
+                    class="email-link">uae@gritbyte.com</a></p>
+            <p class="location1"><img src="United States of America (US).png" alt="USA"> United States of
+                America&nbsp;&nbsp;:&nbsp;&nbsp;<a href="mailto:usa@gritbyte.com"
+                    class="email-link">usa@gritbyte.com</a></p>
+            <p class="location1"><img src="Canada (CA)contact.png" alt="Canada"> Canada&nbsp;&nbsp;:&nbsp;&nbsp;<a
+                    href="mailto:canada@gritbyte.com" class="email-link">canada@gritbyte.com</a></p>
+            <p class="location1"><img src="South Korea (KR)contact.png" alt="South Korea"> South
+                Korea&nbsp;&nbsp;:&nbsp;&nbsp;<a href="mailto:kavyaraj313@gmail.com"
+                    class="email-link">sk@gritbyte.com</a></p>
+        </div>
+
+        <div class="form-container">
+            <form id="contact-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" placeholder="Full Name *" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="E-Mail ID *" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <div id="flag-container" class="flag-container">
+                        <img src="https://flagcdn.com/w20/in.png" alt="India Flag" class="flag-icon" />
+                    </div>
+                    <select id="country-code" onchange="updateFlag()" required>
+                        <option value="+91" data-flag="in" selected>India (+91)</option>
+                        <option value="+1" data-flag="us">USA (+1)</option>
+                        <option value="+44" data-flag="gb">UK (+44)</option>
+                        <option value="+1" data-flag="ca">Canada (+1)</option>
+                    </select>
+                    <input type="tel" id="phone" placeholder="Contact Number *" required>
+                </div>
+
+
+
+                <div class="input-group">
+                    <span class="label-text">Company</span>
+                    <input type="text" id="company" placeholder="Enter your Company name" required>
+                </div>
+                <div class="input-group">
+                    <span class="label-text">Service</span>
+                    <select id="service" required>
+                        <option value="">Select a service</option>
+                        <option value="consulting">XR Development</option>
+                        <option value="training">AI Solutions</option>
+                        <option value="development">Saas Development</option>
+                        <option value="consulting">QA Testing</option>
+                        <option value="training">Offshore Tean Managment</option>
+                        <option value="development">Technical Support</option>
+                        <option value="development">Other (Specify in mesage)</option>
+                    </select>
+                </div>
+                <div class="textarea-group">
+                    <i class="fa fa-pen"></i>
+                    <textarea id="message" placeholder="How can we help you ?" rows="2"></textarea>
+                </div>
+                <div class="input-group radio-group">
+                    <span class="label-text">Preferred Contact Method:</span>
+                    <label><input type="radio" name="contact-method" value="Email"> Email</label>
+                    <label><input type="radio" name="contact-method" value="Phone"> Phone</label>
+                </div>
+
+                <p style="font-weight: bold;">Attach file</p>
+                <div class="file-upload-wrapper">
+                    <label for="file" class="file-upload-label">Upload File<i class="fa fa-cloud-upload-alt"></i>
+                        </i></label>
+                    <input type="file" id="file" class="file-upload" accept=".pdf,.doc,.docx,.txt,.jpg,.png">
+                </div>
+                <p style="font-style: italic; color: #767676;">Upload project briefs, RFPs, or additional documents (Max
+                    size: 5MB)</p>
+
+
+                <div class="input-group row">
+                    <label style="font-weight: bold;" class="checkbox-label">
+                        <input type="checkbox" id="allow-contact" checked> Allow Gritbyte to contact me
+                    </label>
+                    <button type="submit" class="button1">SUBMIT YOUR INQUIRY <i class="fa fa-paper-plane"></i></button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <section class="section45">
+        <div class="container45">
+            <div class="card45">
+                <h2 class="highlight45">Why Gritbyte Labs?</h2>
+                <ol style="margin-bottom: 10px; padding-left: 1%;">
+                    <li><span class="highlight45">Global Expertise: </span> Trusted by top-tier clients across 20+
+                        countries, including Pfizer, Bosch Rexroth, and Hyundai.</li>
+                    <li><span class="highlight45">Innovative Solutions: </span> Pioneering AI, XR, SaaS, and next-gen
+                        offshore development. </li>
+                    <li><span class="highlight45">24/7 Support: </span> Seamless assistance for web, mobile, AI & XR
+                        platforms. </li>
+                    <li><span class="highlight45">ailored Approach: </span> Every solution is customized to meet your
+                        business goals and challenges. </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <div class="container-wrapper">
+        <h1 class="container-heading">Client Success Stories</h1>
+        <div class="container">
+            <div class="card">
+                <p>Gritbyte Labs transformed our training process with XR solutions, improving efficiency by 35%.”
+                    <br><br>–
+                    Global Retail Leader
+                </p>
+            </div>
+
+            <div class="card">
+                <p>Their AI-powered platform helped us reduce errors by 40% in just three months.”<br><br> – Healthcare
+                    Innovator </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <section class="our-presence-section">
+        <div class="our-presence-column">
+            <h2 class="our-presence-heading">Our Presence</h2>
+            <table class="our-presence-table">
+                <tr>
+                    <td>
+                        <div class="our-presence-flag">
+                            <img src="https://flagcdn.com/w40/in.png" alt="India Flag">
+                        </div>
+                    </td>
+                    <td><strong>India</strong></td>
+                    <td style="text-align: right;">
+                        <div class="our-presence-box">Bengaluru</div>
+                        <div class="our-presence-box">Mysuru</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="our-presence-flag">
+                            <img src="https://flagcdn.com/w40/ae.png" alt="UAE Flag">
+                        </div>
+                    </td>
+                    <td><strong>United Arab
+                            Emirates</strong></td>
+                    <td style="text-align: right;">
+                        <div class="our-presence-box">Downtown Dubai</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="our-presence-flag">
+                            <img src="https://flagcdn.com/w40/kr.png" alt="South Korea Flag">
+                        </div>
+                    </td>
+                    <td><strong>South Korea</strong></td>
+                    <td style="text-align: right;">
+                        <div class="our-presence-box">Seoul</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="our-presence-flag">
+                            <img src="https://flagcdn.com/w40/ca.png" alt="Canada Flag">
+                        </div>
+                    </td>
+                    <td><strong>Canada</strong></td>
+                    <td style="text-align: right;">
+                        <div class="our-presence-box">Toronto</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="our-presence-flag">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                        </div>
+                    </td>
+                    <td><strong>UK</strong></td>
+                    <td style="text-align: right;">
+                        <div class="our-presence-box">London</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="our-presence-column">
+            <div id="our-presence-map" class="our-presence-map"></div>
+        </div>
+    </section>
+
+    <div class="future-proof-section">
+        <div class="container60">
+            <div class="headline60">Future-proof your business in 2025.</div>
+            <div class="subtext60">Explore how Gritbyte Labs can empower your industry.</div>
+            <a href="#" class="button60">
+                Get in Touch <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                    <a href="#" class="arrow">&#10145;</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
+                    <a href="#">Career</a>
+                    <a href="contact3.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contact-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Collect form data
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let phone = document.getElementById("phone").value;
+                let company = document.getElementById("company").value;
+                let service = document.getElementById("service").value;
+                let message = document.getElementById("message").value;
+                let contactMethod = document.querySelector('input[name="contact-method"]:checked') ? document.querySelector('input[name="contact-method"]:checked').value : "Not specified";
+
+                // WhatsApp Integration
+                let whatsappMessage = `Hello, I want to inquire about:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\nService: ${service}\nPreferred Contact: ${contactMethod}\nMessage: ${message}`;
+                let encodedMessage = encodeURIComponent(whatsappMessage);
+                let whatsappUrl = `https://wa.me/8310214624?text=${encodedMessage}`;
+
+                // Email Integration (Fallback)
+                let mailtoLink = `mailto:kavyaraj313@gmail.com?subject=Inquiry from ${name}&body=${encodeURIComponent(whatsappMessage)}`;
+
+                // File upload validation
+                let fileInput = document.getElementById("file");
+                if (fileInput.files.length > 0) {
+                    let file = fileInput.files[0];
+                    if (file.size > 5 * 1024 * 1024) { // File size exceeds 5MB
+                        alert("File size exceeds 5MB. Please upload a smaller file.");
+                        return;
+                    }
+                    // If file size is acceptable, notify user and continue with form submission
+                    alert("File uploaded successfully. Please proceed with submission.");
+                }
+
+                // Redirect to WhatsApp or Email based on user's choice
+                if (navigator.share) { // Check if WhatsApp is available (Web Share API for mobile)
+                    window.open(whatsappUrl, "_blank");
+                } else {
+                    window.location.href = mailtoLink;
+                }
+            });
+        });
+
+    </script>
+    <script>
+        function updateFlag() {
+            var select = document.getElementById("country-code");
+            var selectedOption = select.options[select.selectedIndex];
+            var countryFlag = selectedOption.getAttribute("data-flag");
+
+            // Create the flag image element
+            var flagImg = document.createElement("img");
+            flagImg.src = "https://flagcdn.com/w20/" + countryFlag + ".png"; // Set the flag image source dynamically
+            flagImg.alt = countryFlag + " Flag"; // Set the alt text for accessibility
+
+            // Apply the correct style to maintain aspect ratio
+            flagImg.style.objectFit = "contain"; // Ensures the flag fits without being stretched
+
+            // Clear previous flag and append the new one
+            var flagContainer = document.getElementById("flag-container");
+            flagContainer.innerHTML = '';  // Remove the old flag
+            flagContainer.appendChild(flagImg); // Append the new flag
+        }
+
+
+
+    </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function initPresenceMap() {
+            var map = L.map('our-presence-map').setView([20.0, 0.0], 2);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            var locations = [
+                { name: "Bengaluru, India", lat: 12.9716, lng: 77.5946, flag: "https://flagcdn.com/w40/in.png" },
+                { name: "Mysuru, India", lat: 12.2958, lng: 76.6394, flag: "https://flagcdn.com/w40/in.png" },
+                { name: "Downtown Dubai, UAE", lat: 25.276987, lng: 55.296249, flag: "https://flagcdn.com/w40/ae.png" },
+                { name: "Seoul, South Korea", lat: 37.5665, lng: 126.9780, flag: "https://flagcdn.com/w40/kr.png" },
+                { name: "Toronto, Canada", lat: 43.651070, lng: -79.347015, flag: "https://flagcdn.com/w40/ca.png" },
+                { name: "London, UK", lat: 51.5074, lng: -0.1278, flag: "https://flagcdn.com/w40/gb.png" }
+            ];
+
+            locations.forEach(location => {
+                var popupContent = `<div style="text-align:center;"><div class="our-presence-flag" style="display:inline-block;"><img src="${location.flag}" alt="Flag"></div><br><strong>${location.name}</strong></div>`;
+                L.marker([location.lat, location.lng]).addTo(map).bindPopup(popupContent);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initPresenceMap);
+    </script>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
+        }
+
+        const header = document.getElementById('header');
+        const logoImage = document.getElementById('logo');
+        const ctaButton = document.querySelector('.cta-button'); // Select the button
+        const originalLogoSrc = 'hel.png';
+        const scrolledLogoSrc = 'Gritbyte Logo 1 (1).png';
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                logoImage.src = scrolledLogoSrc;
+                ctaButton.style.color = 'white'; // Keep text color white
+            } else {
+                header.classList.remove('scrolled');
+                logoImage.src = originalLogoSrc;
+                ctaButton.style.color = 'white'; // Ensure text remains white
+            }
+        });
+    </script>
+
+</body>
+
+</html>

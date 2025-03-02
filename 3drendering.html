@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: relative;
+            background-color: white;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: black;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+            position: relative;
+        }
+
+        nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #5107B8;
+        }
+
+        nav a.cta-button {
+            background-color: #5107B8;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: white;
+                height: 100%;
+                width: 250px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            #nav-menu a {
+                color: black;
+                margin-bottom: 20px;
+            }
+
+            #nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .close-menu {
+                font-size: 30px;
+                color: black;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .close-menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-home {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-home {
+                display: none;
+            }
+        }
+
+        .container {
+            padding: 5%;
+
+            margin: auto;
+        }
+
+        .header-section {
+            border-left: 8px solid #4A00E0;
+            padding-left: 10px;
+        }
+
+        h1 {
+            color: #5107B8;
+            font-size: clamp(2rem, 3vw, 3.25rem);
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        h2 {
+         
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            font-weight: bold;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            line-height: 1.4;
+        }
+
+        h3 {
+            color: #4A00E0;
+            font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        p,
+        li {
+            font-weight: 300;
+            color: #333;
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .italic-text {
+            font-style: italic;
+            color: #666;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 5% 3%;
+            }
+
+            h1,
+            h2,
+            h3 {
+                line-height: 1.4;
+            }
+        }
+
+        .container67 {
+            padding: 5%;
+        }
+
+        .future-proof-section {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .future-proof-section .container60 {
+            background-color: #f5f5f5;
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        .future-proof-section .headline60 {
+            font-size: 2vw;
+            /* Responsive font size */
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .future-proof-section .subtext60 {
+            font-weight: bold;
+            font-size: 2vw;
+            color: #000000;
+            margin-top: 10px;
+        }
+
+        .future-proof-section .button60 {
+            display: inline-block;
+            background-color: #5107B8;
+            color: white;
+            padding: 12px 28px;
+            font-size: 1.5vw;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .future-proof-section .button60:hover {
+            background-color: #3a006e;
+        }
+
+        .future-proof-section .button60:hover .arrow {
+            transform: translateX(5px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .future-proof-section {
+                height: auto;
+                padding: 15px;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 5vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4vw;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-proof-section {
+                height: auto;
+                padding: 10px;
+            }
+
+            .future-proof-section .container60 {
+                max-width: 100%;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 6vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4.5vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4vw;
+                padding: 8px 15px;
+                /* Reduce padding */
+                max-width: 90%;
+                /* Prevent overflow */
+                width: auto;
+                /* Let it fit content */
+                display: block;
+                /* Full width if needed */
+                margin: 10px auto;
+                /* Center button */
+                text-align: center;
+            }
+        }
+
+
+        .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: #666;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap;
+                /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto;
+                /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px;
+                /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0000001A;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+
+
+
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            font-size: 14px;
+            color: #666;
+            background-color: #f8f8f8;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows links to wrap if needed */
+            gap: 10px;
+        }
+
+        .footer-links-bottom a {
+            text-decoration: none;
+            color: #666;
+            margin: 0 10px;
+            white-space: nowrap;
+            /* Prevents links from breaking into two lines */
+        }
+
+        .footer-links-bottom a:hover {
+            color: #000;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                /* Stack items on smaller screens */
+                text-align: center;
+                gap: 10px;
+            }
+
+            .footer-links-bottom {
+                justify-content: center;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+        .under-development {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 5% 0;
+        }
+        .under-development-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: under-development-bounce 2s infinite;
+        }
+        @keyframes under-development-bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .under-development-container h1 {
+            color: #333;
+        }
+        .under-development-container p {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img id="logo" src="Gritbyte Logo 1 (1).png" alt="Gritbyte Labs Logo" height="40"></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav-menu">
+            <div class="close-menu" onclick="toggleMenu()">&times;</div>
+            <a href="Index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="Index.html" class="mobile-home">Home</a>
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
+        </nav>
+    </header>
+    <div class="under-development">
+        <div class="under-development-container">
+            <h1>Website Under Development</h1>
+            <p>We are working hard to bring you an amazing experience. Stay tuned!</p>
+        </div>
+        </div>
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                    <a href="#" class="arrow">&#10145;</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
+                    <a href="#">Career</a>
+                    <a href="contact3.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
+        }
+    </script>
+</body>
+
+</html>

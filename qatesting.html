@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Testing</title>
+
+    <link rel="icon"  type="image/png" href="header.jpg"> <!-- Favicon -->
+  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1000;
+        }
+
+        header.scrolled {
+            background-color: white;
+            color: black;
+        }
+
+        header.scrolled nav a {
+            color: black;
+        }
+
+        .menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white; /* Default color before scrolling */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+header.scrolled .menu-icon {
+    color: black; /* Change to black when scrolled */
+}
+
+
+
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 400;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 24px;
+            position: relative;
+        }
+
+        nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #5107B8;
+        }
+
+        nav a.cta-button {
+            background-color: #5107B8;
+            color: white !important;
+            padding: 10px 20px;
+            /* border-radius: 5px; */
+            font-weight: 900;
+            font-size: 14px;
+            line-height: 16.8px;
+            letter-spacing: 20%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header.scrolled nav a.cta-button {
+            color: white !important;
+            /* Ensures text stays white */
+        }
+       
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            .menu-icon {
+                display: block;
+                
+            }
+
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: white;
+                height: 100%;
+                width: 250px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            #nav-menu a {
+                color: black;
+                margin-bottom: 20px;
+            }
+
+            #nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .close-menu {
+                font-size: 30px;
+                color: black;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .close-menu {
+                display: none;
+            }
+        }
+
+        /* Hide home icon on mobile, show text */
+        @media (max-width: 768px) {
+            .desktop-home {
+                display: none;
+            }
+        }
+
+        /* Hide home text on desktop, show icon */
+        @media (min-width: 769px) {
+            .mobile-home {
+                display: none;
+            }
+        }
+
+
+
+
+        .hero-section {
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* align-items: center; */
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section h1 {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+
+            text-align: left;
+            line-height: 57.6px;
+            color: white;
+            font-size: 48px;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+
+            font-weight: 600;
+            line-height: 22.4px;
+            padding-right: 50%;
+            text-align: left;
+            color: white;
+            margin-top: 10px;
+            font-size: 16px;
+    
+        }
+
+        .demo-button {
+            background-color: #7e00ff;
+            color: white;
+            padding: 15px 40px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .hero-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            padding: .5% 5%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 boxes per row */
+            gap: 20px;
+        }
+
+        .container-heading {
+            line-height: 28.8px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #5107B8;
+            letter-spacing: -0.02em;
+            padding-left: 5%;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            color: #000000;
+            font-size: 16px;
+           
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            line-height: 22.4px;
+            margin-bottom: 10px;
+        }
+
+        /* a. and b. formatting with left gap */
+        .card .section {
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+            line-height: 1.5rem;
+            font-size: clamp(14px, 1.2vw, 16px);
+
+            display: flex;
+            /* gap: 10px; */
+            margin-bottom: 5px;
+            padding-left: 20px;
+            font-weight: 400;
+            /* Adds left space */
+        }
+
+        .card .content {
+            padding-left: 40px;
+            /* More indentation */
+            margin-bottom: 10px;
+        }
+
+        .card .section b {
+            font-weight: bold;
+            min-width: 25px;
+            /* Ensures alignment */
+        }
+
+        /* Roman numeral list */
+        .card ul {
+            padding-left: 65px;
+            /* Aligns Roman numerals under b. */
+        }
+
+        .card ul.hello {
+            padding-left: 35px;
+            /* Aligns Roman numerals under b. */
+        }
+
+        .card ul.roman {
+            list-style-type: lower-roman;
+            /* Uses Roman numerals */
+        }
+
+        .card ul.hello li {
+            font-weight: 300;
+            color: #000000;
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+            margin-bottom: 5px;
+        }
+
+        .card ul.roman li {
+            font-weight: 400;
+            color: #000000;
+            line-height: 1.8;
+            font-size: clamp(14px, 1.2vw, 16px);
+
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 boxes per row on tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                /* 1 box per row on mobile */
+            }
+        }
+
+
+        .container23 {
+            padding: 5%;
+        }
+
+        .header-section23 {
+            border-left: 16px solid #5107B8;
+            padding-left: 10px;
+        }
+
+
+        .header-section23 h1 {
+            color: #5107B8;
+            font-size: clamp(2rem, 3vw, 3.25rem);
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .italic-text {
+           
+          
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+        }
+
+        .header-section23 p {
+            padding: 1%;
+            text-align: justify;
+            color: #000000;
+            font-size: 16px;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            font-weight: 400;
+            line-height: 22.4px;
+        }
+
+        
+        .future-proof-section {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .future-proof-section .container60 {
+            background-color: #f5f5f5;
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        .future-proof-section .headline60 {
+
+            font-weight: 900;
+            line-height: 38.4px;
+            font-size: 32px;
+            /* Responsive font size */
+
+            color: #000000;
+        }
+
+        .future-proof-section .subtext60 {
+            font-weight: 900;
+            line-height: 38.4px;
+            font-size: 32px;
+            color: #000000;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .future-proof-section .button60 {
+            display: inline-flex;
+            /* Allows better control of spacing */
+            align-items: center;
+            /* Vertically aligns text and arrow */
+            justify-content: center;
+            background-color: #5107B8;
+            color: white;
+            width: 432px;
+            /* Fixed width */
+            height: 72px;
+            /* Fixed height */
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            gap: 30px;
+            /* Space between text and arrow */
+        }
+
+        .future-proof-section .button60:hover {
+            background-color: #3a006e;
+        }
+
+        .future-proof-section .button60 .arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .future-proof-section .button60:hover .arrow {
+            transform: translateX(5px);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .future-proof-section {
+                height: auto;
+                padding: 15px;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 5vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4vw;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-proof-section {
+                height: auto;
+                padding: 10px;
+            }
+
+            .future-proof-section .container60 {
+                max-width: 100%;
+            }
+
+            .future-proof-section .headline60 {
+                font-size: 6vw;
+            }
+
+            .future-proof-section .subtext60 {
+                font-size: 4.5vw;
+            }
+
+            .future-proof-section .button60 {
+                font-size: 4.5vw;
+                width: 100%;
+            }
+        }
+
+        .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: black;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            font-weight: 600;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+          
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+           color: #757575;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    
+        }
+
+
+
+
+
+        .footer-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5%;
+ 
+    font-size: 14px;
+    color: #666;
+  
+}
+
+.footer-links-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap if needed */
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: 0 10px;
+    white-space: nowrap; /* Prevents links from breaking into two lines */
+}
+
+.footer-links-bottom a:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column; /* Stack items on smaller screens */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links-bottom {
+        justify-content: center;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+        .section45 {
+            padding: 5%;
+          
+        }
+
+        .container45 {
+            width: 100%;
+            display: grid;
+            gap: 20px;
+        }
+
+        .card45 {
+            background: white;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .highlight45 {
+
+            font-weight: bold;
+            line-height: 2rem;
+        }
+
+        .grid45 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two boxes per row */
+            gap: 20px;
+        }
+
+        .card45 ul {
+            padding-left: 5%;
+        }
+
+     
+
+        .card45 h2 {
+            color: #5107B8;
+            margin-bottom: 20px;
+        }
+
+        .card45 h3 {
+            margin-bottom: 10px;
+        }
+
+        .card45  p {
+           
+            padding-left: 3%;
+        }
+
+        @media (max-width: 768px) {
+            .grid45 {
+                grid-template-columns: 1fr;
+                /* One box per row on small screens */
+            }
+            .card45  p {
+            margin-bottom: 10px;
+            
+            padding-left: 0px;
+       
+        }
+        }
+
+
+
+
+        .section46 {
+            padding: 5%;
+            background-color: #f8f8f8;
+        }
+
+        .container46 {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card46 {
+            background: white;
+            padding: 10%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight46 {
+
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 5%;
+        }
+
+        .card46 h2 {
+            margin-bottom: 15px;
+        }
+
+        .card46 h3 {
+            margin-bottom: 10px;
+        }
+
+        .card46 p,
+        .card46 li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .container46 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container46 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <a href="Index.html"><img id="logo" src="hel.png" alt="Gritbyte Labs Logo" height="40"></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav-menu">
+            <div class="close-menu" onclick="toggleMenu()">×</div>
+            <a href="Index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="Index.html" class="mobile-home">Home</a>
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
+        </nav>
+    </header>
+
+
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="qatesting.png" alt="Hero Background">
+        </div>
+        <h1>Q/A Testing
+            <br>– Ensuring Excellence with Precision & Performance </h1>
+            <p id="currentDate"></p>
+
+
+    </section>
+
+    <div class="container23">
+        <div class="header-section23">
+
+            <p class="italic-text">Flawless user experiences define market leaders. At Gritbyte Labs, we provide
+                end-to-end QA testing solutions, ensuring your applications — across web, mobile, and XR platforms —
+                deliver seamless performance, security, and scalability. Our expert manual and automated testing
+                services detect vulnerabilities, optimize efficiency, and guarantee a bug-free, high-performance product
+                that exceeds industry standards.</p>
+        </div>
+
+    </div>
+    <div class="container-wrapper">
+        <h1 class="container-heading">Our QA Testing Services</h1>
+        <div class="container">
+            <div class="card">
+                <h2>1. Manual Testing – Precision in Every Interaction:</h2>
+                <p class="section"><b>a.</b> Ensure flawless functionality with rigorous hands-on testing that mimics real-world user behavior. </p>
+                <p class="section"><b>b.</b><strong>Use Cases: </strong></p>
+                <ul class="roman">
+                    <li><strong>Web & Mobile Applications:</strong> End-to-end functionality validation.</li>
+                    <li><strong>XR Platforms (VR & AR):</strong> Immersive environment accuracy and interaction testing. </li>
+                </ul>
+
+            </div>
+
+            <div class="card">
+                <h2>2. Automated Testing – Faster, Smarter, Scalable:</h2>
+                <p class="section"><b>a.</b> Accelerate testing cycles with AI-powered automation frameworks that boost efficiency and precision. </p>
+                <p class="section"><b>b.</b> <strong>Focus Areas:</strong></p>
+                <ul class="roman">
+                    <li><strong>Regression Testing: </strong> Identify and fix issues swiftly with automated test suites.</li>
+                    <li><strong>Performance Testing:</strong> Ensure scalability under high user loads.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>3. Performance & Load Testing – Stress-Test for Success: </h2>
+                <p class="section"><b>a.</b> Simulate real-world scenarios to measure your platform’s resilience, speed, and reliability. </p>
+                <p class="section"><b>b.</b><strong>Examples: </strong> </p>
+                <ul class="roman">
+                    <li><strong>E-commerce: </strong>  Ensure seamless transactions during high-traffic sales events. </li>
+                    <li><strong>Gaming:</strong>  Test multiplayer stability and latency responsiveness. </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Security Testing – Fortifying Digital Assets: </h2>
+                <p class="section">Identify and eliminate vulnerabilities to protect applications from cyber threats and compliance risks. </p>
+                <p class="section"><b>b.</b><strong>Critical Use Cases: </strong> </p>
+                <ul class="roman">
+                    <li><strong>Healthcare Applications: </strong>  Secure sensitive patient data and HIPAA compliance. </li>
+                    <li><strong>Retail Platforms: </strong>   Ensure payment gateways meet PCI-DSS security standards.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>5. Cross-Platform Compatibility – One Build, Seamless Everywhere:</h2>
+                <p class="section">Guarantee flawless user experiences across multiple devices, OS, and browsers. </p>
+               
+            </div>
+
+            <div class="card">
+                <h2>6. Bug Reporting & Tracking – Actionable Insights for Fast Fixes:  </h2>
+                <p class="section">Deliver comprehensive issue reports with detailed root cause analysis and recommendations, ensuring rapid resolutions. </p>
+
+            </div>
+        </div>
+    </div>
+    <section class="section45">
+        <div class="container45">
+            <div class="card45">
+                <h2 class="highlight45">Why Gritbyte Labs ?</h2>
+                <ul style="margin-bottom: 10px;">
+                    <li><span class="highlight45">95% Faster Bug Resolution:</span> Identify, track, and resolve issues proactively. 
+                    </li>
+                    <div style="margin-bottom: 5px;"></div>
+                    <li><span class="highlight45">30% Cost Savings:</span>  Automated testing reduces testing cycles and manual effort. </li>
+                    <li><span class="highlight45">Accelerated Time-to-Market:</span>  Faster, smarter QA enables rapid product launches. </li>
+                    <li><span class="highlight45">Enhanced Security: </span> Fortify your applications with enterprise-grade cybersecurity testing. </li>
+                </ul>
+            </div>
+
+            <div class="card45">
+                <h2 class="highlight45">Industries We Serve</h2>
+                <ul>
+                    <li><span class="highlight45">Gaming:</span> QA for XR games, ensuring fluid gameplay & seamless mechanics. 
+                    </li>
+                    <li><span class="highlight45">Healthcare:</span> AI-driven telemedicine validation and patient data protection. </li>
+                    <li><span class="highlight45">Retail:</span>  E-commerce stress testing for peak traffic performance. </li>
+                    <li><span class="highlight45">Manufacturing:</span> QA for IoT-driven predictive maintenance applications.</li>
+                    <li><span class="highlight45">Aviation:</span> XR-based pilot training module validation. </li>
+                </ul>
+            </div>
+
+            <div class="card45">
+                <h2 class="highlight45">Key Stats</h2>
+                <ul>
+                    <li><span class="highlight45">95% Faster Bug Resolution: </span> Clients resolve issues quicker with detailed QA reports. 
+                    </li>
+                    <li><span class="highlight45">30% Cost Reduction:</span> Automated testing minimizes manual effort and reduces testing costs. </li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 30px;"></div>
+            <h2 class="highlight45" style="text-align: left;color:#5107B8;">Success Stories</h2>
+
+            <div class="grid45">
+                <div class="card45">
+                    <h3>Pfizer</h3>
+                    <ul>
+                        <li><span class="highlight45">Challenge:</span> Ensuring VR training modules met industry reliability standards.</li>
+                        <li><span class="highlight45">Solution:</span> Delivered manual & automated testing, optimizing performance & stability.</li>
+                        <li><span class="highlight45">Impact:</span> Improved user experience & platform reliability, reducing downtime by 40%.</li>
+                    </ul>
+                </div>
+
+                <div class="card45">
+                    <h3>Gamelin (Dubai)</h3>
+                    <p><span class="highlight45">1. Challenge:</span>  Enhancing game quality while optimizing testing costs. </p>
+                    <p><span class="highlight45">2. Solution:</span>  Provided a high-performance QA team, ensuring seamless gameplay and top-tier performance. </p>
+                    <p><span class="highlight45">3. Impact:</span> Helped secure high-profile contracts with L'Oréal and
+                        Dubai government organizations.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="future-proof-section">
+        <div class="container60">
+            <div class="headline60">Deliver Excellence with World-Class QA Testing</div>
+            <a style="padding: 3%;" href="contact3.html" class="button60">
+                Explore Our QA Solutions<span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                        <a href="#" class="arrow">&#10145;</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
+                    <a href="#">Career</a>
+                    <a href="contact3.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
+        }
+    
+        const header = document.getElementById('header');
+        const logoImage = document.getElementById('logo');
+        const ctaButton = document.querySelector('.cta-button'); // Select the button
+        const originalLogoSrc = 'hel.png';
+        const scrolledLogoSrc = 'Gritbyte Logo 1 (1).png';
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                logoImage.src = scrolledLogoSrc;
+                ctaButton.style.color = 'white'; // Keep text color white
+            } else {
+                header.classList.remove('scrolled');
+                logoImage.src = originalLogoSrc;
+                ctaButton.style.color = 'white'; // Ensure text remains white
+            }
+        });
+    </script>
+      <script>
+        document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </script>
+</body>
+
+</html>

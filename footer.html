@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Development Offerings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+
+
+        .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: #666;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0000001A;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+
+
+
+
+        .copyright {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+
+        .section45 {
+            padding: 5%;
+            background-color: #f8f8f8;
+        }
+
+        .container45 {
+            width: 100%;
+            display: grid;
+            gap: 20px;
+        }
+
+        .card45 {
+            background: white;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .highlight45 {
+
+            font-weight: bold;
+            line-height: 2rem;
+        }
+
+        .grid45 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two boxes per row */
+            gap: 20px;
+        }
+
+        ul {
+            padding-left: 5%;
+        }
+
+
+
+        h2 {
+            color: #5107B8;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid45 {
+                grid-template-columns: 1fr;
+                /* One box per row on small screens */
+            }
+        }
+
+
+
+
+        .section46 {
+            padding: 5%;
+            background-color: #f8f8f8;
+        }
+
+        .container46 {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card46 {
+            background: white;
+            padding: 10%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight46 {
+
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 5%;
+        }
+
+        .card46 h2 {
+            margin-bottom: 15px;
+        }
+
+        .card46 h3 {
+            margin-bottom: 10px;
+        }
+
+        .card46 p,
+        .card46 li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .container46 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container46 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                    <a href="#">➡</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Career</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</div>
+
+
+
+</body>
+
+</html>

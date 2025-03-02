@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <title>FAQ Section</title>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+     
+    
+    
+    
+    
+        <link rel="icon" type="image/png" href="header.jpg"> <!-- Favicon -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+
+
+            body {
+                background-color: #f8f8f8;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 50px;
+                position: relative;
+                background-color: white;
+                z-index: 1000;
+            }
+
+            .menu-icon {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+                color: black;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+            }
+
+            nav a {
+                font-weight: 400;
+                margin: 0 15px;
+                color: black;
+                text-decoration: none;
+                font-size: 15px;
+                line-height: 24px;
+                position: relative;
+            }
+
+            nav a:hover::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 100%;
+                height: 2px;
+                background-color: #5107B8;
+            }
+
+            nav a.cta-button {
+            background-color: #5107B8;
+            color: white !important;
+            padding: 10px 20px;
+            /* border-radius: 5px; */
+            font-weight: 900;
+            font-size: 14px;
+            line-height: 16.8px;
+            letter-spacing: 20%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+            @media (max-width: 768px) {
+                header {
+                    padding: 10px 20px;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+
+                #nav-menu {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    background-color: white;
+                    height: 100%;
+                    width: 250px;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 20px;
+                }
+
+                #nav-menu a {
+                    color: black;
+                    margin-bottom: 20px;
+                }
+
+                #nav-menu.open {
+                    transform: translateX(0);
+                }
+
+                .close-menu {
+                    font-size: 30px;
+                    color: black;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+
+            @media (min-width: 769px) {
+                .close-menu {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .desktop-home {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 769px) {
+                .mobile-home {
+                    display: none;
+                }
+            }
+
+
+            .faq-container {
+                padding: 1% 5%;
+                max-width: 100%;
+                border-radius: 8px;
+            }
+
+            .faq-container h1 {
+
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                font-size: 24px;
+                line-height: 28.8px;
+                letter-spacing: -0.02em;
+                /* Reduces letter spacing by 2% */
+                color: #5107B8;
+                text-align: left;
+                margin-bottom: 4rem;
+                font-weight: 800;
+
+            }
+
+            .faq-categories {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-bottom: 10px;
+                justify-content: center;
+            }
+
+            .faq-categories div {
+                background: #f3f3f3;
+                padding: 10px 15px;
+                font-weight: 600;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 16px;
+                line-height: 22.4px;
+                flex: 1;
+                /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+                min-width: 180px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .faq-categories div:hover {
+                background: #ddd;
+            }
+
+            .faq-title {
+                color: #5107B8;
+                letter-spacing: -0.02em;
+                /* Reduces letter spacing by 2% */
+                font-weight: 800;
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                line-height: 28.8px;
+                font-size: 24px;
+                margin-top: 70px;
+
+            }
+
+            .faq-item {
+                margin: 15px 0;
+                padding: 15px;
+            }
+
+            .faq-item h3 {
+                font-weight: 700;
+                margin-bottom: 1%;
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                line-height: 24px;
+                font-size: 20px;
+                color: #000000;
+            }
+
+            .faq-item p {
+                margin: 5px 0;
+                font-size: 20px;
+                line-height: 24px;
+                font-weight: 400;
+                /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+
+                color: #000000;
+                padding-left: 2rem;
+            }
+
+
+
+            .industries {
+                max-width: 600px;
+                /* Adjust as needed */
+                margin: 0 auto;
+                /* Center the text */
+                text-align: left;
+                /* Align text properly */
+                white-space: normal;
+                /* Ensure wrapping */
+                word-break: break-word;
+                /* Prevent overflow issues */
+            }
+
+
+            .global-partner-wrapper {
+                max-width: 600px;
+                /* Set a max width */
+                margin-left: 2rem;
+                /* Adjust margin for proper alignment */
+            }
+
+            .global-partners {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                /* Add spacing between items */
+                align-items: center;
+                justify-content: flex-start;
+                /* Align content to the left */
+            }
+
+            .global-partners span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                /* Adjust spacing between flag and text */
+                white-space: nowrap;
+                /* Prevent text from breaking into multiple lines */
+            }
+
+            .global-partners img {
+                width: 20px;
+                height: 15px;
+            }
+
+
+
+
+            /* Button Styling */
+            button {
+                background-color: #5107B8;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                font-size: 1rem;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.2s ease;
+                margin-top: 10px;
+            }
+
+            /* Default: Button Left-Aligned */
+            .faq-item .btn-container {
+                text-align: left;
+            }
+
+            /* Button Hover Effect */
+            button:hover {
+                background-color: #6a0dad;
+                transform: scale(1.05);
+            }
+
+            /* Center Button on Small Screens */
+            @media (max-width: 1024px) {
+                .faq-item .btn-container {
+                    text-align: center;
+                }
+            }
+
+
+            /* List Item Styling */
+            ul {
+                padding-left: 2rem;
+            }
+
+            li {
+                list-style-type: none;
+                font-size: 1rem;
+                color: #000000;
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 8px;
+            }
+
+            li::before {
+                content: "•";
+                color: black;
+                font-size: 1.2rem;
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 1024px) {
+
+
+                .faq-categories {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .faq-categories div {
+                    width: 100%;
+                    max-width: 400px;
+                }
+
+                .faq-title {
+                    font-size: 1.4rem;
+                    text-align: left;
+                }
+
+                .faq-item {
+                    text-align: left;
+                }
+
+
+            }
+
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 1.5rem;
+                }
+
+                .faq-title {
+                    font-size: 1.3rem;
+                }
+
+                .faq-item {
+                    text-align: justify;
+                    padding: 10px;
+                }
+
+                .faq-item h3 {
+                    font-size: 1.1rem;
+                }
+
+                .faq-item p {
+                    text-align: justify;
+                    font-size: 0.95rem;
+                    padding-left: 1rem;
+                }
+
+                ul {
+                    padding-left: 1rem;
+                }
+
+                button {
+                    font-size: 0.95rem;
+                    padding: 10px 20px;
+                }
+            }
+
+            .future-proof-section {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40vh;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .future-proof-section .container60 {
+                background-color: #f5f5f5;
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .future-proof-section .headline60 {
+
+                font-weight: 900;
+                line-height: 38.4px;
+                font-size: 32px;
+                /* Responsive font size */
+
+                color: #000000;
+            }
+
+            .future-proof-section .subtext60 {
+                font-weight: 900;
+                line-height: 38.4px;
+                font-size: 32px;
+                color: #000000;
+                margin-top: 10px;
+            }
+
+            .future-proof-section .button60 {
+                display: inline-flex;
+                /* Allows better control of spacing */
+                align-items: center;
+                /* Vertically aligns text and arrow */
+                justify-content: center;
+                background-color: #5107B8;
+                color: white;
+                width: 432px;
+                /* Fixed width */
+                height: 72px;
+                /* Fixed height */
+                font-size: 14px;
+                font-weight: 900;
+                text-transform: uppercase;
+                border-radius: 4px;
+                margin-top: 15px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+                gap: 10px;
+                /* Space between text and arrow */
+            }
+
+            .future-proof-section .button60:hover {
+                background-color: #3a006e;
+            }
+
+            .future-proof-section .button60 .arrow {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .future-proof-section .button60:hover .arrow {
+                transform: translateX(5px);
+            }
+
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .future-proof-section {
+                    height: auto;
+                    padding: 15px;
+                }
+
+                .future-proof-section .headline60 {
+                    font-size: 5vw;
+                }
+
+                .future-proof-section .subtext60 {
+                    font-size: 4vw;
+                }
+
+                .future-proof-section .button60 {
+                    font-size: 4vw;
+                    padding: 10px 20px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .future-proof-section {
+                    height: auto;
+                    padding: 10px;
+                }
+
+                .future-proof-section .container60 {
+                    max-width: 100%;
+                }
+
+                .future-proof-section .headline60 {
+                    font-size: 6vw;
+                }
+
+                .future-proof-section .subtext60 {
+                    font-size: 4.5vw;
+                }
+
+                .future-proof-section .button60 {
+                    font-size: 4.5vw;
+                    width: 100%;
+                }
+            }
+
+            .footer {
+            padding: 0 5%;
+            padding-top: 4%;
+
+        }
+
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+
+            padding-top: 3%;
+            padding-bottom: 3%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: black;
+            text-align: left;
+        }
+
+        .footer-text a {
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: black;
+            width: 60px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            font-weight: 600;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            line-height: 2.5rem;
+        }
+
+        .footer-links a::after {
+            content: "➡";
+            color: black;
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) {
+            flex: 0 0 150px;
+            /* Adjust the width of the second column */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            padding-bottom: 4%;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .contact-info {
+            padding-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certified-trusted {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certified,
+        .trusted {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16.5%;
+        }
+
+        .certified p,
+        .trusted p {
+            font-size: 16px;
+          
+            margin-bottom: 10px;
+        }
+
+        .trusted-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
+        .location {
+           color: #757575;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
+
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    
+        }
+
+
+
+
+
+        .footer-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5%;
+ 
+    font-size: 14px;
+    color: #666;
+  
+}
+
+.footer-links-bottom {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap if needed */
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: 0 10px;
+    white-space: nowrap; /* Prevents links from breaking into two lines */
+}
+
+.footer-links-bottom a:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column; /* Stack items on smaller screens */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links-bottom {
+        justify-content: center;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .certified-trusted {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trusted {
+                align-items: flex-start;
+            }
+        }
+
+            .container {
+                padding: 5%;
+
+                margin: auto;
+            }
+
+            .header-section {
+                border-left: 16px solid #5107B8;
+                padding-left: 10px;
+            }
+
+            .header-section h1 {
+                font-size: 48px;
+                /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                /* Reduces letter spacing by 2% */
+                color: #5107B8;
+                line-height: 57.6px;
+                padding-bottom: 1rem;
+            }
+
+            .header-section p {
+                font-style: italic;
+                color: #000000;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22.4px;
+                /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+            }
+        </style>
+    </head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="Index.html"><img id="logo" src="Gritbyte Logo 1 (1).png" alt="Gritbyte Labs Logo" height="40"></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav-menu">
+            <div class="close-menu" onclick="toggleMenu()">&times;</div>
+            <a href="Index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="Index.html" class="mobile-home">Home</a>
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="header-section">
+            <h1>Frequently Asked Questions</h1>
+            <p class="italic-text">Got questions ? We’ve got answers. Explore our FAQs to discover how Gritbyte Labs
+                delivers next-gen XR, AI, and SaaS solutions to power your business.</p>
+        </div>
+
+    </div>
+    <div class="faq-container">
+        <h1>FAQ Categories</h1>
+        <div class="faq-categories">
+            <div>General Questions</div>
+            <div>Pricing & Project Timelines</div>
+            <div>Services and Expertise</div>
+            <div>Technical Support</div>
+            <div>Offshore Team Management</div>
+            <div>Partnerships and Collaboration</div>
+        </div>
+
+        <h2 class="faq-title">1. General Questions</h2>
+        <div class="faq-item">
+            <h3>Q1. What is Gritbyte Labs, and what do you specialize in ?</h3>
+            <p>Gritbyte Labs is a global tech powerhouse, pioneering solutions in XR (AR/VR/MR), AI, SaaS development,
+                QA testing, offshore team management, and 3D design.</p>
+            <p><strong>260+ successful projects</strong> delivered across <strong>20+ countries</strong>, trusted by top
+                brands.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2. Which industries do you serve ?</h3>
+            <p>We bring disruptive innovation to industries like:</p>
+            <p class="industries"><span>Healthcare | Retail | Manufacturing | Real Estate | Aviation | Gaming |
+                    Education</span></p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. Where are your offices located?</h3>
+            <p><strong>India:</strong> Bangalore & Mysore</p>
+            <div class="global-partner-wrapper">
+                <p class="industries"><strong>Global Partners:</strong></p>
+                <div class="global-partners">
+                    <span>UAE <img src="United Arab Emirates (AE) (1).png" alt="UAE Flag"></span> |
+                    <span>USA <img src="United States of America (US).png" alt="USA Flag"></span> |
+                    <span>Canada <img src="Canada (CA).png" alt="Canada Flag"></span> |
+                    <span>South Korea <img src="South Korea (KR).png" alt="South Korea Flag"></span>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <h2 class="faq-title">2. Services and Expertise</h2>
+        <div class="faq-item">
+            <h3>Q1. What is XR, and how can it benefit my business ?</h3>
+            <p>XR (Extended Reality) includes VR (Virtual Reality), AR (Augmented Reality), and MR (Mixed Reality).</p>
+            <p>It enhances training, product showcases, remote collaboration, and customer engagement through
+                hyper-immersive experiences.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2. Can you develop custom AI solutions ?</h3>
+            <p>Yes! We build AI-powered chatbots, predictive analytics, NLP tools, and generative AI models for
+                automation and data-driven decision-making.</p>
+
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. What types of SaaS platforms do you develop ?</h3>
+            <p>Scalable, cloud-native SaaS solutions, including :  </p>
+            <p>E-commerce platforms, Learning Management Systems (LMS), ERP & CRM software, AI-driven automation tools 
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+            <h3>Q4. Do you provide 3D design and rendering services ?</h3>
+            <p>Yes! Our photo-realistic 3D modeling, animation, and rendering services power gaming, real estate, and
+                product visualization.</p>
+
+        </div>
+
+
+
+
+
+        <h2 class="faq-title">3. Technical Support</h2>
+        <div class="faq-item">
+            <h3>Q1. What technical support services do you offer ?</h3>
+            <p>24/7 tech support for web, mobile, AI, and XR platforms. L1 & L2 troubleshooting, proactive maintenance,
+                and performance optimization.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2. How can I contact your technical support team ?</h3>
+            <p><strong>Email:</strong> support@gritbyte.com</p>
+            <button>Go to next page</button>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. Do you offer support for XR devices ?</h3>
+                <p>Yes! We provide customized support for VR headsets, AR glasses, and MR environments to optimize
+                    performance and compatibility.</p>
+        </div>
+
+
+
+
+
+        <h2 class="faq-title">4. Offshore Team Management</h2>
+        <div class="faq-item">
+            <h3>Q1. What is offshore team management, and how does it work ?</h3>
+            <p>We help businesses scale efficiently by building and managing dedicated remote teams, handling: Talent
+                acquisition & onboarding, Training & upskilling, Performance monitoring & payroll.</p>
+        </div>
+        <div class="faq-item">
+            <h3 style="margin-bottom: .5%;">Q2. What roles can you provide through offshore teams?</h3>
+            <p>We offer highly skilled professionals, including:</p>
+            <ul>
+                <li><strong>XR Developers</strong></li>
+                <li><strong>AI Engineers</strong></li>
+                <li><strong>QA Testers</strong></li>
+                <li><strong>3D Designers</strong></li>
+                <li><strong>Technical Support Specialists</strong></li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. How do you ensure the quality of offshore teams ?</h3>
+            <p>Industry-leading hiring standards, ongoing training, and rigorous quality checks ensure that your remote
+                team delivers excellence. </p>
+        </div>
+
+
+
+        <h2 class="faq-title">5. Partnerships and Collaboration</h2>
+        <div class="faq-item">
+            <h3>Q1. Can we collaborate on a project if my company is not in your location ?</h3>
+            <p>Yes! We specialize in remote project execution, using secure, real-time collaboration tools for seamless
+                communication.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2. How do you support your international partners ?</h3>
+            <p>We offer localized support via our global partners in UAE, USA, Canada, and South Korea for smoother
+                service delivery.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. Are you open to long-term partnerships ?</h3>
+            <p>Absolutely! We prioritize long-term collaborations and are committed to becoming your trusted tech
+                partner.</p>
+
+        </div>
+
+
+
+        <h2 class="faq-title">6. Pricing and Project Duration</h2>
+        <div class="faq-item">
+            <h3>Q1. How do you determine the cost of a project ?</h3>
+            <p>Pricing depends on scope, complexity, technology stack, and delivery timeline. After an initial
+                consultation, we provide a detailed project proposal.</p>
+        </div>
+
+
+        <div class="faq-item">
+            <h3>Q2. Do you offer flexible pricing models?</h3>
+            <p>Yes! We provide:</p>
+            <ul>
+                <li><strong>Price:</strong> For well-defined project scopes.</li>
+                <li><strong>Time & Material:</strong> Ideal for evolving requirements.</li>
+                <li><strong>Dedicated Team:</strong> A fully managed team working exclusively on your project.</li>
+
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3. Are there any hidden charges ?</h3>
+            <p>No, our pricing is transparent. All costs are outlined in the project proposal, and any additional
+                changes are discussed upfront before implementation.</p>
+        </div>
+
+
+        <div class="faq-item">
+            <h3>Q4. How long does it take to complete a project ?</h3>
+            <p>Project duration varies by complexity:</p>
+            <ul>
+                <li><strong>Small Projects:</strong> 4–6 weeks (Website, MVPs, basic apps).</li>
+                <li><strong>Medium Projects:</strong> 2–4 months (SaaS platforms, XR modules).</li>
+                <li><strong>Large Projects:</strong> 6+ months (Enterprise solutions, AI-powered platforms).</li>
+
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q5. Can you expedite project timelines ?</h3>
+            <p>Yes! We fast-track delivery by scaling resources and prioritizing key milestones (Additional cost
+                applies).</p>
+
+        </div>
+
+        <div class="faq-item">
+            <h3>Q6. Do you offer a free consultation or project estimate ?</h3>
+            <p>Yes! Schedule a free consultation to discuss your project & get a custom quote.</p>
+
+        </div>
+
+
+        <div class="faq-item">
+            <h3>Q7. How do I pay for your services ?</h3>
+            <p>We accept:</p>
+            <ul>
+                <li><strong>Credit Card</strong> </li>
+                <li><strong>Wire Transfer</strong> </li>
+                <li><strong>Digital Payment Platforms</strong> </li>
+
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q8. Is there any post-project support included in the cost ?</h3>
+            <p>Yes! Every project includes a defined post-launch support period, with optional long-term maintenance
+                plans.</p>
+
+        </div>
+
+
+    </div>
+    <div class="future-proof-section">
+        <div class="container60">
+            <div class="headline60">Future-proof your business in 2025.</div>
+            <div class="subtext60">Explore how Gritbyte Labs can empower your industry.</div>
+            <a href="contact3.html" class="button60">
+                Get in Touch <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-text">
+                    <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
+                        businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
+                        partner for innovation.</p>
+                    <a href="#" class="arrow">&#10145;</a>
+                </div>
+                <div class="certified-trusted">
+                    <div class="certified">
+                        <p>Certified by</p>
+                        <img src="certified.png" alt="Certified">
+                    </div>
+                    <div class="trusted">
+                        <p>Trusted by</p>
+                        <div class="trusted-images">
+                            <img src="pfzier.png" alt="Trusted">
+                            <img src="Hundai.png" alt="Trusted">
+                            <img src="bosch.png" alt="Trusted">
+                            <img src="rexorth.png" alt="Trusted">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
+                    <a href="#">Career</a>
+                    <a href="contact3.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <hr>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@domain.com</p>
+                </div>
+                <hr>
+                <div class="location-row">
+                    <div class="location">
+                        <img src="India (IN).png" alt="Location">
+                        <p>Bangalore<br>Mysuru</p>
+                    </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
+                    <div class="location">
+                        <img src="South Korea (KR).png" alt="Location">
+                        <p>Seoul</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Kingdom (GB).png" alt="Location">
+                        <p>London</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="Canada (CA).png" alt="Location">
+                        <p>Toronto</p>
+                    </div>
+                    <div class="vertical-line"></div>
+
+                    <div class="location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
+                        <p>Downtown <br>Dubai</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <hr>
+    </footer>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
+        }
+    </script>
+</body>
+
+
+
+
+
+</html>
